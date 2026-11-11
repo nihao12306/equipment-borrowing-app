@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>设备借用登记</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <h1>设备借用登记</h1>
+          <p id="statusLine">正在读取设备列表…</p>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="功能切换">
+        <button class="tab active" data-view="borrow">借设备</button>
+        <button class="tab" data-view="return">归还</button>
+        <button class="tab" data-view="admin">管理</button>
+      </nav>
+
+      <section class="view active" id="borrow">
+        <form id="borrowForm" class="panel">
+          <label>
+            借用人
+            <input name="borrower" autocomplete="name" required>
+          </label>
+          <label>
+            联系方式/飞书名
+            <input name="contact" autocomplete="nickname">
+          </label>
+          <label>
+            拍摄主播
+            <input name="host" placeholder="请填写实际拍摄主播" required>
+          </label>
+          <label>
+            拍摄场地
+            <select name="location" required>
+              <option value="">请选择</option>
+              <option value="直播间">直播间</option>
+              <option value="拍摄间">拍摄间</option>
+              <option value="外拍">外拍</option>
+            </select>
+            <span id="locationStatus" class="meta"></span>
+          </label>
+          <div class="time-grid">
+            <label>
+              开始时间
+              <input name="start" type="datetime-local" required>
+            </label>
+            <label>
+              预计归还
+              <input name="end" type="datetime-local" required>
+            </label>
+          </div>
+          <label>
+            备注
+            <input name="note" placeholder="可不填">
+          </label>
+          <div class="actions">
+            <button type="button" id="refreshAvailability">立即刷新空闲状态</button>
+            <button type="submit" class="primary">提交登记</button>
+          </div>
+          <p id="submitStatus" class="meta" aria-live="polite"></p>
+        </form>
+        <div id="deviceList" class="device-list"></div>
+      </section>
+
+      <section class="view" id="return">
+        <form id="returnSearch" class="panel">
+          <label>
+            借用人
+            <input name="borrower">
+          </label>
+          <label>
+            联系方式/飞书名
+            <input name="contact">
+          </label>
+          <button type="submit" class="primary">查找我的记录</button>
+        </form>
+        <div id="returnList" class="record-list"></div>
+      </section>
+
+      <section class="view" id="admin">
+        <form id="adminForm" class="panel">
+          <label>
+            管理员密码
+            <input name="password" type="password" required>
+          </label>
+          <label>
+            确认人
+            <input name="adminName" placeholder="默认管理员">
+          </label>
+          <button type="submit" class="primary">打开管理列表</button>
+        </form>
+        <div id="adminList" class="record-list"></div>
+      </section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

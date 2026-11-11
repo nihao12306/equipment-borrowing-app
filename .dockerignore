@@ -1,0 +1,6 @@
+.git
+*.log
+*.env
+equipment-qr-lan.png
+last-test-borrow*.json
+node_modules

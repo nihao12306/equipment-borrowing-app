@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+*.log
+*qr*.png
+last-test-borrow*.json
+node_modules

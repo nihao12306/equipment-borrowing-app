@@ -1,0 +1,192 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --ink: #171a1f;
+  --muted: #667085;
+  --line: #d9dee7;
+  --panel: #ffffff;
+  --blue: #2563eb;
+  --green: #0f766e;
+  --red: #b42318;
+  --yellow: #8a6100;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+}
+
+.app {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.topbar {
+  padding: 14px 0 10px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+button {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: #98a2b3;
+  cursor: not-allowed;
+}
+
+.tab.active,
+.primary {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.panel {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: #344054;
+  font-size: 14px;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: inherit;
+  background: #fff;
+}
+
+.time-grid,
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.device-list,
+.record-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.category {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.device,
+.record {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.device label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.device input {
+  width: 18px;
+  min-height: 18px;
+  margin-top: 2px;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.warn {
+  color: var(--yellow);
+}
+
+.bad {
+  color: var(--red);
+}
+
+.ok {
+  color: var(--green);
+}
+
+.record-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 12px;
+  }
+
+  .time-grid,
+  .actions,
+  .record-actions {
+    grid-template-columns: 1fr;
+  }
+}

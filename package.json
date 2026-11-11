@@ -1,0 +1,16 @@
+{
+  "name": "equipment-borrowing-app",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node server.js --demo",
+    "demo": "node server.js --demo",
+    "test": "node --test test/*.test.js",
+    "start": "node server.js"
+  }
+}
